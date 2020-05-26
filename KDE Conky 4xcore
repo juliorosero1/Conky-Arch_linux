@@ -1,0 +1,132 @@
+# Use Xft?
+use_xft yes
+xftfont zekton:size=9
+xftalpha 0.8
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 1
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent no
+own_window_type normal
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 250 250
+maximum_width 250
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders yes
+
+# Stippled borders?
+stippled_borders 0
+
+# border margins
+border_margin 1
+
+# border width
+border_width 0
+
+# Default colors and also border colors
+default_color white
+#default_shade_color black
+#default_outline_color black
+own_window_colour 000000
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 0
+gap_y 60
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+
+own_window_argb_value 178
+own_window_argb_visual yes
+TEXT
+${voffset 35}${image kde.png -p 0,0 -s  92x92}${font zekton:pixelsize=17}                                Arch Linux
+${font Acens:pixelsize=20}
+${font Acens:pixelsize=15}
+${font zekton:style=Bold:pixelsize=10}Fecha ${hr 2}${font} 
+${alignc 58}      ${font michroma:size=15}   ${time %H:%M:%S}${font} 
+${voffset 4}${alignc}${font zekton:style=Bold:pixelsize=10}${time %A %d, %B %Y}
+${color 2A9BD3}Actividad ${hr 2}
+${color}Uptime: $color${alignr}${uptime}
+
+${color 2A9BD3}Sistema ${hr 2}
+${color}${nodename}
+${color}${pre_exec lsb_release -i -s}
+${color}Release ${pre_exec lsb_release -r -s} (${pre_exec lsb_release -c -s})
+${color}Kernel ${sysname} ${kernel}
+
+${color 2A9BD3}Recursos ${hr 2}
+${color}CPU1 ${cpu cpu1}%${alignr}${color 6796C8}${cpubar cpu1 10,60}
+${color}CPU2 ${cpu cpu2}%${alignr}${color 6796C8}${cpubar cpu2 10,60}
+${color}CPU3 ${cpu cpu3}%${alignr}${color 6796C8}${cpubar cpu3 10,60}
+${color}CPU4 ${cpu cpu4}%${alignr}${color 6796C8}${cpubar cpu4 10,60}
+
+${color 2A9BD3}Memoria e Intercambio ${hr 2}
+${color}Mem  ${mem}/${memmax}${alignr}${color 749FC0}${membar 10,60}
+${color}Swap ${swap}/${swapmax}${alignr}${color 49a835}${swapbar 10,60}
+
+${color 2A9BD3}File Systems ${hr 2}
+${color}sda1 ${fs_used /}/${fs_size /}${alignr}${color 6796C8}${fs_bar 10,60 /}
+${color}sdb1 ${fs_used /media/Downloads}/${fs_size /media/Downloads}${alignr}${color 6796C8}${fs_bar 10,60 /media/Downloads}
+
+${color 2A9BD3}Procesos ${hr 2}
+${color}Command${alignr}CPU%
+${color}${top name 1}${alignr}${top cpu 1}
+${color}${top name 2}${alignr}${top cpu 2}
+${color}${top name 3}${alignr}${top cpu 3}
+${color}${top name 4}${alignr}${top cpu 4}
+${color}${top name 5}${alignr}${top cpu 5}
+${color}${top name 6}${alignr}${top cpu 6}
+
+${color}Command${alignr}RES
+${color}${top_mem name 1}${alignr}${top_mem mem_res 1}
+${color}${top_mem name 2}${alignr}${top_mem mem_res 2}
+${color}${top_mem name 3}${alignr}${top_mem mem_res 3}
+${color}${top_mem name 4}${alignr}${top_mem mem_res 4}
+${color}${top_mem name 5}${alignr}${top_mem mem_res 5}
+${color}${top_mem name 6}${alignr}${top_mem mem_res 6}
